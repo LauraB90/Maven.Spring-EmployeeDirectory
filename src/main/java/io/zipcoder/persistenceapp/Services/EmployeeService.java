@@ -39,10 +39,10 @@ public class EmployeeService {
         employeeInDB.setLastName(newEmployeeData.getLastName());
         employeeInDB.setEmail(newEmployeeData.getEmail());
         employeeInDB.setPhoneNum(newEmployeeData.getPhoneNum());
-        employeeInDB.setDepartmentNumber(newEmployeeData.getDepartmentNumber());
+        //employeeInDB.setDepartmentNumber(newEmployeeData.getDepartmentNumber());
         employeeInDB.setHireDate(newEmployeeData.getHireDate());
         employeeInDB.setTitle(newEmployeeData.getTitle());
-        employeeInDB.setManagerId(newEmployeeData.getManagerId());
+        //employeeInDB.setManagerId(newEmployeeData.getManagerId());
         repository.save(employeeInDB);
         return employeeInDB;
     }

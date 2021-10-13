@@ -1,9 +1,6 @@
 package io.zipcoder.persistenceapp.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -18,17 +15,25 @@ public class Employee {
     private String phoneNum;
     private String email;
     private Date hireDate;
+   // private String manager;
+    //oneToOnw
 
 
-    private String DepartmentNumber; //id
+    private Long depId;
+    //private Long managerId;
+
     private Long managerId;
+    @ManyToOne
+    @JoinColumn(name = "managerId", referencedColumnName = "id", insertable = false, updatable = false)
+    private Employee manager;
+
 
 
     public Employee() {
     }
 
 
-    public Employee(long id, String firstName, String lastName, String title, String phoneNum, String email, Date hireDate, String departmentNumber, Long managerId) {
+    public Employee(long id, String firstName, String lastName, String title, String phoneNum, String email, Date hireDate, Long managerId, Employee manager) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -36,8 +41,10 @@ public class Employee {
         this.phoneNum = phoneNum;
         this.email = email;
         this.hireDate = hireDate;
-        DepartmentNumber = departmentNumber;
-        this.managerId = managerId;
+        this.manager = manager;
+
+        //this.managerId = managerId;
+
     }
 
 
@@ -97,19 +104,20 @@ public class Employee {
         this.hireDate = hireDate;
     }
 
-    public String getDepartmentNumber() {
-        return DepartmentNumber;
+
+    public Employee getManager() {
+        return manager;
     }
 
-    public void setDepartmentNumber(String departmentNumber) {
-        DepartmentNumber = departmentNumber;
+    public void setManager(Employee manager) {
+        this.manager = manager;
     }
 
-    public Long getManagerId() {
-        return managerId;
-    }
-
-    public void setManagerId(Long managerId) {
-        this.managerId = managerId;
-    }
+    //    public Long getManagerId() {
+//        return managerId;
+//    }
+//
+//    public void setManagerId(Long managerId) {
+//        this.managerId = managerId;
+//    }
 }

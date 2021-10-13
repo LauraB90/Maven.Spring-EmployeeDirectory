@@ -11,21 +11,18 @@ public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
-private Long departmentNumber;
-private String departmentName;
-
-private String departementManager;//id
+    private String name;
+    //OneToOne
+    private Long depManagerId;//id
 
 
     public Department() {
     }
 
-    public Department(long id, Long departmentNumber, String departmentName, String departementManager) {
+    public Department(long id, String depname, Long depManagerId) {
         this.id = id;
-        this.departmentNumber = departmentNumber;
-        this.departmentName = departmentName;
-        this.departementManager = departementManager;
+        this.name = depname;
+        this.depManagerId = depManagerId;
     }
 
 
@@ -37,27 +34,20 @@ private String departementManager;//id
         this.id = id;
     }
 
-    public Long getDepartmentNumber() {
-        return departmentNumber;
+
+    public String getName() {
+        return name;
     }
 
-    public void setDepartmentNumber(Long departmentNumber) {
-        this.departmentNumber = departmentNumber;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDepartmentName() {
-        return departmentName;
+    public Long getManager() {
+        return depManagerId;
     }
 
-    public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName;
-    }
-
-    public String getDepartementManager() {
-        return departementManager;
-    }
-
-    public void setDepartementManager(String departementManager) {
-        this.departementManager = departementManager;
+    public void setManager(Long managerid) {
+        this.depManagerId = managerid;
     }
 }

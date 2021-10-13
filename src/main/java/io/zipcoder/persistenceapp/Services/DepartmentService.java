@@ -37,10 +37,11 @@ public class DepartmentService {
 
     public Department update (Long id, Department newdepartmentData) {
         Department departmentInDB = read(id);
-        departmentInDB.setDepartmentName(newdepartmentData.getDepartmentName());
-        departmentInDB.setDepartmentNumber(newdepartmentData.getDepartmentNumber());
-        repository.save(departmentInDB);
-        return departmentInDB;
+        departmentInDB.setName(newdepartmentData.getName());
+        departmentInDB.setManager(newdepartmentData.getManager());
+        //departmentInDB.setDepnumber(newdepartmentData.getDepnumber());
+       return repository.save(departmentInDB);
+
     }
 
     public Department delete(Department department){

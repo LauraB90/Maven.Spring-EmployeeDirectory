@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/employee")
+@RequestMapping(value = "/emp")
 public class EmplyeeController {
 
 
@@ -40,7 +40,7 @@ public ResponseEntity<Employee> update(@PathVariable Long id, @RequestBody Emplo
 }
 
 
-@DeleteMapping(value = "/delete")
+@DeleteMapping(value = "/del/{id}")
     public ResponseEntity<Employee> delete (@PathVariable Long id ){
         return new ResponseEntity<>(service.delete(id), HttpStatus.OK);
 
